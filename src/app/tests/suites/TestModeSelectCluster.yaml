@@ -88,3 +88,23 @@ tests:
                 value: 2
       response:
           error: CONSTRAINT_ERROR
+
+    - label: "Change to Unsupported StartUp Mode"
+      command: "writeAttribute"
+      attribute: "StartUpMode"
+      arguments:
+          value: 2
+      response:
+          error: CONSTRAINT_ERROR
+
+    - label: "Change to Supported StartUp Mode"
+      command: "writeAttribute"
+      attribute: "StartUpMode"
+      arguments:
+          value: 4
+
+    - label: "Verify StartUp Mode Change"
+      command: "readAttribute"
+      attribute: "StartUpMode"
+      response:
+          value: 4
